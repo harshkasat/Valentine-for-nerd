@@ -25,7 +25,7 @@ function App() {
 
   const steps = [
     {
-      content: "Heyyyyy girl Touch Next to continue.",
+      content: "Heyyyyy Girl, Touch Next to continue.",
       image: "/heart.png",
     },
     {
@@ -45,7 +45,7 @@ function App() {
     },
     {
       content: `You're beautiful, you're smart, you're fun,
-and you make spending time together feel too short.`,
+and you make spending time together feels too short.`,
       image: "/character/four.png",
     },
     {
@@ -67,18 +67,18 @@ hold your hands, and look into your pretty eyes.`,
   const { width, height } = useWindowSize();
 
   const [audio] = useState(() => new Audio("/song/Perfect.mp3"));
-  useEffect(() => {
-    const playAudio = async () => {
-      try {
-        await audio.play();
-        audio.muted = false; // Unmute immediately after play starts
-      } catch (err) {
-        console.log("Autoplay blocked. Playing on interaction instead.");
-      }
-    };
+  // useEffect(() => {
+  //   const playAudio = async () => {
+  //     try {
+  //       await audio.play();
+  //       audio.muted = false; // Unmute immediately after play starts
+  //     } catch (err) {
+  //       console.log("Autoplay blocked. Playing on interaction instead.");
+  //     }
+  //   };
   
-    playAudio();
-  }, [currentStep]); // Ensures audio starts when the first image loads
+  //   playAudio();
+  // }, [currentStep]); // Ensures audio starts when the first image loads
   useEffect(() => {
     const imagePaths = [
       ...steps.map((step) => step.image),
@@ -137,7 +137,7 @@ hold your hands, and look into your pretty eyes.`,
           {steps[currentStep].content}
         </motion.div>
 
-        {currentStep < 6 && (
+        {currentStep < 7 && (
           <>
             <button
               onClick={() => setCurrentStep(currentStep + 1)}
@@ -155,7 +155,7 @@ hold your hands, and look into your pretty eyes.`,
             )}
           </>
         )}
-        {currentStep === 6 && (
+        {currentStep === 7 && (
           <>
             <button
               onClick={async () => {
