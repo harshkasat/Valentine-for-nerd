@@ -67,18 +67,18 @@ hold your hands, and look into your pretty eyes.`,
   const { width, height } = useWindowSize();
 
   const [audio] = useState(() => new Audio("/song/Perfect.mp3"));
-  // useEffect(() => {
-  //   const playAudio = async () => {
-  //     try {
-  //       await audio.play();
-  //       audio.muted = false; // Unmute immediately after play starts
-  //     } catch (err) {
-  //       console.log("Autoplay blocked. Playing on interaction instead.");
-  //     }
-  //   };
+  useEffect(() => {
+    const playAudio = async () => {
+      try {
+        await audio.play();
+        audio.muted = false; // Unmute immediately after play starts
+      } catch (err) {
+        console.log("Autoplay blocked. Playing on interaction instead.");
+      }
+    };
   
-  //   playAudio();
-  // }, [currentStep]); // Ensures audio starts when the first image loads
+    playAudio();
+  }, [currentStep]); // Ensures audio starts when the first image loads
   useEffect(() => {
     const imagePaths = [
       ...steps.map((step) => step.image),
